@@ -1703,7 +1703,7 @@ bool8 ScrCmd_setmonmove(struct ScriptContext *ctx)
 {
     u8 partyIndex = ScriptReadByte(ctx);
     u8 slot = ScriptReadByte(ctx);
-    u16 move = ScriptReadHalfword(ctx);
+    u16 move = (VarGet(ScriptReadHalfword(ctx)));
 
     ScriptSetMonMoveSlot(partyIndex, move, slot);
     return FALSE;

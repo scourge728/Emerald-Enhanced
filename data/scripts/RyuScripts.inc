@@ -934,6 +934,7 @@ RyuDebug_Utility1::
 	msgbox AltScaleOff
 	goto_if_set FLAG_RYU_DO_NOT_AUTOSCALE, ScalingOff
 	msgbox ScalingOn
+	closemessage
 	release
 	end
 
