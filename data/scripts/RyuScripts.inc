@@ -951,7 +951,7 @@ ScaleAltMsg:
 	.string "Alternate Scaling Enabled.$"
 
 AltScaleOff:
-	.string "Alternat Scaling Disabled.$"
+	.string "Alternate Scaling Disabled.$"
 
 ScalingOn:
 	.string "Autoscale is on.$"
@@ -2309,6 +2309,7 @@ PCCheckForMusicChange::
 Ryu_RandomizePCMusic::
 	setvar VAR_TEMP_0, 20
 	gfec
+	setobjectxy EVENT_OBJ_ID_FOLLOWER, VAR_TEMP_1, VAR_TEMP_2
 	call_if_set FLAG_RYU_JUKEBOX_ENABLED, RyuRtMusicOverride
 	random 6
 	switch VAR_RESULT
