@@ -565,3 +565,11 @@ gMetatiles_Fallarbor_Mine::
 	.align 1
 gMetatileAttributes_Fallarbor_Mine::
 	.incbin "data/tilesets/secondary/fallarbor_mine/metatile_attributes.bin"
+
+	.align 1
+gMetatiles_snow::
+	.incbin "data/tilesets/primary/snow/metatiles.bin"
+
+	.align 1
+gMetatileAttributes_snow::
+	.incbin "data/tilesets/primary/snow/metatile_attributes.bin"

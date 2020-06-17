@@ -11280,6 +11280,7 @@ const u32 gTMHMLearnsets[][2] =
 											| TMHM(TM20_SAFEGUARD)
 											| TMHM(TM43_SECRET_POWER)
 											| TMHM(TM06_TOXIC)
+											| TMHM(TM29_PSYCHIC)
 											| TMHM(TM03_WATER_PULSE)),
 
     [SPECIES_MANTYKE]     = TMHM_LEARNSET(TMHM(TM40_AERIAL_ACE)

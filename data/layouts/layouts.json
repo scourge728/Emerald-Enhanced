@@ -4759,6 +4759,16 @@
             "primary_tileset": "gTileset_General",
             "secondary_tileset": "gTileset_MeteorFalls",
             "width": 13
+        },
+        {
+            "blockdata_filepath": "data/layouts/Snowshore/map.bin",
+            "border_filepath": "data/layouts/Snowshore/border.bin",
+            "height": 80,
+            "id": "LAYOUT_SNOWSHORE",
+            "name": "Snowshore_Layout",
+            "primary_tileset": "gTileset_snow",
+            "secondary_tileset": "gTileset_Petalburg",
+            "width": 80
         }
     ],
     "layouts_table_label": "gMapLayouts"
