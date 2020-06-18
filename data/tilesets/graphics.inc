@@ -1751,21 +1751,21 @@ gTilesetTiles_Fallarbor_Mine::
 	.incbin "data/tilesets/secondary/fallarbor_mine/tiles.4bpp.lz"
 
 	.align 2
-gTilesetPalettes_snow::
-	.incbin "data/tilesets/primary/snow/palettes/00.gbapal"
-	.incbin "data/tilesets/primary/snow/palettes/01.gbapal"
-	.incbin "data/tilesets/primary/snow/palettes/02.gbapal"
-	.incbin "data/tilesets/primary/snow/palettes/03.gbapal"
-	.incbin "data/tilesets/primary/snow/palettes/04.gbapal"
-	.incbin "data/tilesets/primary/snow/palettes/05.gbapal"
-	.incbin "data/tilesets/primary/snow/palettes/06.gbapal"
-	.incbin "data/tilesets/primary/snow/palettes/07.gbapal"
-	.incbin "data/tilesets/primary/snow/palettes/08.gbapal"
-	.incbin "data/tilesets/primary/snow/palettes/09.gbapal"
-	.incbin "data/tilesets/primary/snow/palettes/10.gbapal"
-	.incbin "data/tilesets/primary/snow/palettes/11.gbapal"
-	.incbin "data/tilesets/primary/snow/palettes/12.gbapal"
+gTilesetPalettes_Snowy::
+	.incbin "data/tilesets/primary/snowy/palettes/00.gbapal"
+	.incbin "data/tilesets/primary/snowy/palettes/01.gbapal"
+	.incbin "data/tilesets/primary/snowy/palettes/02.gbapal"
+	.incbin "data/tilesets/primary/snowy/palettes/03.gbapal"
+	.incbin "data/tilesets/primary/snowy/palettes/04.gbapal"
+	.incbin "data/tilesets/primary/snowy/palettes/05.gbapal"
+	.incbin "data/tilesets/primary/snowy/palettes/06.gbapal"
+	.incbin "data/tilesets/primary/snowy/palettes/07.gbapal"
+	.incbin "data/tilesets/primary/snowy/palettes/08.gbapal"
+	.incbin "data/tilesets/primary/snowy/palettes/09.gbapal"
+	.incbin "data/tilesets/primary/snowy/palettes/10.gbapal"
+	.incbin "data/tilesets/primary/snowy/palettes/11.gbapal"
+	.incbin "data/tilesets/primary/snowy/palettes/12.gbapal"
 
 	.align 2
-gTilesetTiles_snow::
-	.incbin "data/tilesets/primary/snow/tiles.4bpp.lz"
+gTilesetTiles_Snowy::
+	.incbin "data/tilesets/primary/snowy/tiles.4bpp.lz"
