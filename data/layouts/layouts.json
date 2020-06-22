@@ -4766,7 +4766,7 @@
             "height": 80,
             "id": "LAYOUT_SNOWSHORE",
             "name": "Snowshore_Layout",
-            "primary_tileset": "gTileset_snow",
+            "primary_tileset": "gTileset_Snowy",
             "secondary_tileset": "gTileset_Petalburg",
             "width": 80
         }
