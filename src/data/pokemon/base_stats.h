@@ -3359,13 +3359,13 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_TAUROS] =
     {
         .baseHP        = 75,
-        .baseAttack    = 100,
+        .baseAttack    = 110,
         .baseDefense   = 95,
         .baseSpeed     = 110,
         .baseSpAttack  = 40,
         .baseSpDefense = 70,
         .type1 = TYPE_NORMAL,
-        .type2 = TYPE_NORMAL,
+        .type2 = TYPE_FIGHTING,
         .catchRate = 45,
         .expYield = 172,
         .evYield_Attack    = 1,
