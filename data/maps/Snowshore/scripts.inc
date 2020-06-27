@@ -1,2 +1,2 @@
-Snowshore_MapScripts::
+SnowShore_MapScripts::
 	.byte 0
