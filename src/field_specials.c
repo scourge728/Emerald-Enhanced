@@ -78,7 +78,6 @@
 #include "money.h"
 #include "menu_helpers.h"
 #include "data/lifeskill.h"
-#include "mgba.h"
 
 EWRAM_DATA bool8 gBikeCyclingChallenge = FALSE;
 EWRAM_DATA u8 gBikeCollisions = 0;
@@ -5101,132 +5100,6 @@ void RyuSetIVs(void)
     CalculateMonStats(&gPlayerParty[0]);
 }
 
-void RyuResetDevonFlags(void)
-    {
-        FlagClear(FLAG_HIDE_PETALBURG_WOODS_DEVON_EMPLOYEE);
-        FlagClear(FLAG_HIDE_PETALBURG_WOODS_AQUA_GRUNT);
-        VarSet(VAR_PETALBURG_WOODS_STATE, 0);
-        FlagClear(FLAG_RYU_AQUA_THIEF_SEEN);
-        FlagSet(FLAG_HIDE_ROUTE_116_DEVON_EMPLOYEE);
-        FlagClear(FLAG_RYU_PLAYER_HELPING_DEVON);
-        FlagSet(FLAG_HIDE_FALLARBOR_HOUSE_1_PROF_COZMO);
-        FlagClear(FLAG_HIDE_RUSTBORO_CITY_DEVON_CORP_3F_EMPLOYEE);
-        FlagClear(FLAG_RYU_DEVON_MISSION2START);
-        FlagClear(FLAG_RYU_DEVON_M1C);
-        FlagClear(FLAG_RYU_DG_REWARD_RECEIVED);
-        FlagClear(FLAG_DELIVERED_DEVON_GOODS);
-        FlagClear(FLAG_DELIVERED_STEVEN_LETTER);
-        FlagClear(FLAG_RYU_DEVON_MISSION1START);
-        FlagClear(FLAG_RYU_PLAYER_HELPING_AQUA);
-		FlagClear(FLAG_RYU_DEVON_MISSION6START);
-		FlagClear(FLAG_RYU_DEVON_MISSION5COMPLETE);
-		FlagClear(FLAG_RYU_DEVON_MISSION5START);
-		FlagClear(FLAG_RYU_DEVON_MISSION_3_DONE);
-		FlagClear(FLAG_RYU_DEVON_MISSION3START);
-		FlagClear(FLAG_RYU_DEVON_MISSION4COMPLETE);
-		FlagClear(FLAG_RYU_DEVON_CORPORATE);
-		FlagClear(FLAG_HIDE_AQUA_HIDEOUT_1F_GRUNT_1_BLOCKING_ENTRANCE);
-		FlagClear(FLAG_HIDE_AQUA_HIDEOUT_1F_GRUNT_2_BLOCKING_ENTRANCE);
-		RemoveBagItem(ITEM_FAME_CHECKER, 1);
-		RemoveBagItem(ITEM_METEORITE, 1);
-		RemoveBagItem(ITEM_EXP_DRIVE, 1);
-    }
-void RyuResetAquaFlags(void)
-    {
-        FlagSet(FLAG_RYU_PLAYER_HELPING_AQUA);
-        FlagClear(FLAG_RYU_STARTING_M3);
-        FlagClear(FLAG_RYU_STARTING_M4);
-        FlagClear(FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS);
-        FlagClear(FLAG_RYU_AQUA_LINE_DONE);
-        FlagClear(FLAG_RYU_MISSION4COMPLETE);
-        FlagClear(FLAG_RYU_AQUA_MISSION2COMPLETE);
-        FlagClear(FLAG_RYU_DS_SHELLY_ACQ);
-        FlagClear(FLAG_RYU_DS_SHELLY_FRIENDS);
-        FlagClear(FLAG_RYU_DS_SHELLY_CLOSEFRIENDS);
-        FlagClear(FLAG_RYU_DS_SHELLY_LOVERS);
-        FlagClear(FLAG_RYU_DS_SHELLY_PARTNERS);
-        FlagClear(FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS);
-        FlagClear(FLAG_RYU_AQUA_MISSION2REWARDED);
-        FlagClear(FLAG_RYU_AQUA_MISSION1REWARDED);
-        FlagClear(FLAG_RYU_MISSION4COMPLETE);
-        FlagSet(FLAG_HIDE_METEOR_FALLS_TEAM_AQUA);
-        FlagClear(FLAG_HIDE_METEOR_FALLS_TEAM_MAGMA);
-        FlagClear(FLAG_RYU_PLAYER_AQUA_NECKLACE);
-        FlagClear(FLAG_RYU_PLAYER_AQUA_STONE);
-        FlagClear(FLAG_RYU_PLAYER_AQUA_ADMIN);
-        FlagClear(FLAG_RYU_ARCHIE_SUCCESSFUL);
-        FlagSet(FLAG_RYU_KYOGRE);
-        FlagClear(FLAG_HIDE_AQUA_HIDEOUT_GRUNTS);
-        FlagClear(FLAG_RYU_DS_SHELLY_SCENE);
-        FlagClear(FLAG_RYU_AFTERSHELLYSTORY);
-
-        if (!FLAG_RYU_DS_DAWN_PARTNERS == 1 || !FLAG_RYU_DS_LEAF_PARTNERS == 1 || !FLAG_RYU_DS_BRENDAN_PARTNERS == 1 || !FLAG_RYU_DS_LANETTE_PARTNERS == 1)
-            {
-                FlagClear(FLAG_RYU_DS_HAS_PARTNER);
-            }
-    }
-
-void RyuResetRivalFlags(void)
-    {   
-        FlagClear(FLAG_HIDE_RUSTBORO_CITY_RIVAL);
-        FlagClear(FLAG_HIDE_LILYCOVE_CITY_RIVAL);
-        FlagSet(FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL);
-        FlagSet(FLAG_HIDE_BRENDANS_HOUSE_BRENDAN);
-        FlagSet(FLAG_HIDE_DAWNS_HOUSE_DAWN);
-        FlagClear(FLAG_RYU_DS_DAWN_ACQ);
-        FlagClear(FLAG_RYU_DS_DAWN_FRIENDS);
-        FlagClear(FLAG_RYU_DS_DAWN_CLOSEFRIENDS);
-        FlagClear(FLAG_RYU_DS_DAWN_LOVERS);
-        FlagClear(FLAG_RYU_DS_DAWN_PARTNERS);
-        FlagClear(FLAG_RYU_DS_BRENDAN_ACQ);
-        FlagClear(FLAG_RYU_DS_BRENDAN_FRIENDS);
-        FlagClear(FLAG_RYU_DS_BRENDAN_CLOSEFRIENDS);
-        FlagClear(FLAG_RYU_DS_BRENDAN_LOVERS);
-        FlagClear(FLAG_RYU_DS_BRENDAN_PARTNERS);
-        
-        if (!FLAG_RYU_DS_SHELLY_PARTNERS == 1 && !FLAG_RYU_DS_LEAF_PARTNERS == 1 || !FLAG_RYU_DS_LANETTE_PARTNERS == 1)
-            {
-                FlagClear(FLAG_RYU_DS_HAS_PARTNER);
-            }
-    }
-
-void RyuResetLeafFlags(void)
-    {
-        
-        FlagClear(FLAG_LEAF_PC);
-        FlagClear(FLAG_RYU_DS_LEAF_ACQ);
-        FlagClear(FLAG_RYU_DS_LEAF_FRIENDS);
-        FlagClear(FLAG_RYU_DS_LEAF_CLOSEFRIENDS);
-        FlagClear(FLAG_RYU_DS_LEAF_LOVERS);
-        FlagClear(FLAG_RYU_DS_LEAF_PARTNERS);
-        FlagClear(FLAG_LANA_EVENT3_DONE);
-        FlagClear(FLAG_RYU_HIDE_R120_LANA_AND_HIKER);
-        FlagClear(FLAG_RYU_LEAF_ALTERNATE_LINE);
-        FlagClear(FLAG_RYU_LEAF_MTPYRE);
-        FlagClear(FLAG_RYU_DAYCARE_LEAFEVENTPC);
-        FlagClear(FLAG_RYU_LANA_ALTEVENT3);
-        FlagClear(FLAG_RYU_HIDE_LCC_DEPT_ROOF_NPC);
-        FlagClear(FLAG_RYU_LEAF_LCC_EVENT_DONE);
-        FlagClear(FLAG_LH_EVENT);
-        FlagClear(FLAG_RYU_DEFEATED_SS);
-        FlagClear(FLAG_HIDE_LANETTES_HOUSE_LANETTE);
-        FlagSet(FLAG_HIDE_FALLORBOR_POKEMON_CENTER_LANETTE);
-        FlagClear(FLAG_RYU_LANA_ALTEVENT2);
-        FlagClear(FLAG_RYU_LEAF_MTPYRE);
-        FlagClear(FLAG_RYU_DAYCARE_LEAFEVENTPC);
-        FlagClear(FLAG_HIDE_LANAS_HOUSE_LANA_AND_BRO);
-        FlagClear(FLAG_RYU_DS_LEAF_LINE_CANCELLED);
-        FlagClear(FLAG_LEAF_EVENT_0);
-        FlagSet(FLAG_RYU_HIDE_REL_OBJECTS);
-        FlagSet(FLAG_HIDE_CHAMPIONS_ROOM_RIVAL);
-        FlagSet(FLAG_HIDE_CHAMPIONS_ROOM_STEVEN);
-
-        if (!FLAG_RYU_DS_DAWN_PARTNERS == 1 && !FLAG_RYU_DS_BRENDAN_PARTNERS == 1 && !FLAG_RYU_DS_DAWN_PARTNERS || !FLAG_RYU_DS_LANETTE_PARTNERS == 1)
-            {
-                FlagClear(FLAG_RYU_DS_HAS_PARTNER);
-            }
-    }
-
 bool8 IsWailordInParty(void)
     {
     u8 i;
@@ -6289,6 +6162,27 @@ bool8 RyuFollowerToTrainerID(void)
                         return TRUE;
                         break;
                     }
+                case OBJ_EVENT_GFX_RIVAL_DAWN_NORMAL:
+                    {
+                        gSpecialVar_0x8006 = TRAINER_REL_DAWN;
+	                    gSpecialVar_0x8007 = TRAINER_BACK_PIC_DAWN;
+                        return TRUE;
+                        break;
+                    }
+                case OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL:
+                    {
+                        gSpecialVar_0x8006 = TRAINER_REL_BRENDAN;
+	                    gSpecialVar_0x8007 = TRAINER_BACK_PIC_BRENDAN;
+                        return TRUE;
+                        break;
+                    }
+                case OBJ_EVENT_GFX_LEAF:
+                    {
+                        gSpecialVar_0x8006 = TRAINER_REL_LANA;
+	                    gSpecialVar_0x8007 = TRAINER_BACK_PIC_LEAF;
+                        return TRUE;
+                        break;
+                    }
                 }
                 return FALSE;
             }
@@ -6403,7 +6297,6 @@ bool8 ScrCmd_dominingcheck(struct ScriptContext *ctx)
     }
     VarSet(VAR_TEMP_B, reward);
     VarSet(VAR_TEMP_C, amount);
-    mgba_printf(MGBA_LOG_INFO, "Rewarding %d %d's", amount, reward);
     return TRUE;
     
 }
@@ -6632,3 +6525,145 @@ int Ryu_GiveRevivedFossilEgg(void)
     return 1;
 }  
 
+int RyuCheckRelMegaReward(void)
+{
+    u16 partnerId = (VarGet(VAR_RYU_FOLLOWER_ID));
+
+    switch (partnerId)
+    {
+        case OBJ_EVENT_GFX_AQUA_MEMBER_F:
+        {
+            if (FlagGet(FLAG_RYU_SHELLY_MEGA_REWARD) == 0)
+                {
+                    FlagSet(FLAG_RYU_SHELLY_MEGA_REWARD);
+                    return ITEM_SHARPEDONITE;
+                }
+        }
+        case OBJ_EVENT_GFX_RIVAL_DAWN_NORMAL:
+        {
+            if (FlagGet(FLAG_RYU_DAWN_MEGA_REWARD) == 0)
+                {
+                    FlagSet(FLAG_RYU_DAWN_MEGA_REWARD);
+                    return ITEM_ALTARIANITE;
+                }
+        }
+        case OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL:
+        {
+            if (FlagGet(FLAG_RYU_BRENDAN_MEGA_REWARD) == 0)
+                {
+                    FlagSet(FLAG_RYU_BRENDAN_MEGA_REWARD);
+                    return ITEM_LUCARIONITE;
+                }
+        }
+        case OBJ_EVENT_GFX_LEAF:
+            {
+                if (FlagGet(FLAG_RYU_LEAF_MEGA_REWARD) == 0)
+                {
+                    FlagSet(FLAG_RYU_LEAF_MEGA_REWARD);
+                    return ITEM_VENUSAURITE;
+                }
+            }
+        default:
+        {
+            return 0;
+        }
+    }
+};
+
+extern const u8 gText_ColorLightRedShadowRed[];
+extern const u8 gText_ColorLightBlueShadowBlue[];
+const u8 gText_ColorDarkGreyShadowLightGrey[] = _("{COLOR DARK_GREY}{SHADOW LIGHT_GREY}");
+const u8 gText_RyuStatsHP[] =    _("                HP: ");
+const u8 gText_RyuStatsAtk[] =   _("        Attack: ");
+const u8 gText_RyuStatsDef[] =   _("      Defense: ");
+const u8 gText_RyuStatsSpAtk[] = _("  Sp. Attack: ");
+const u8 gText_RyuStatsSpDef[] = _("Sp. Defense: ");
+const u8 gText_RyuStatsSpeed[] = _("          Speed: ");
+const u8 gText_RyuStatsIv[] = _(", Iv: ");
+const u8 gText_RyuStatsEv[] = _(", Ev: ");
+
+
+bool8 RyuFillStatsBuffers(void)
+{
+    s8 NatureBoost = 0;
+    u8 statIndex = 1;
+    u8 nature = (GetNature(&gPlayerParty[0]));
+    u8 gTextBuffer1[64];
+    u8 gTextBuffer2[64];
+    u8 gTextBuffer3[64];
+    u8 gTextBuffer4[64];
+
+    StringCopy(gTextBuffer1, gText_ColorDarkGreyShadowLightGrey);
+    StringAppend(gTextBuffer1, gText_RyuStatsHP);
+    ConvertIntToDecimalStringN(gTextBuffer2, (GetMonData(&gPlayerParty[0], MON_DATA_HP, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer2);
+    StringAppend(gTextBuffer1, gText_RyuStatsIv);
+    ConvertIntToDecimalStringN(gTextBuffer3, (GetMonData(&gPlayerParty[0], MON_DATA_HP_IV, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer3);
+    StringAppend(gTextBuffer1, gText_RyuStatsEv);
+    ConvertIntToDecimalStringN(gTextBuffer4, (GetMonData(&gPlayerParty[0], MON_DATA_HP_EV, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer4);
+    StringCopy(gStringVar1, gTextBuffer1);
+
+    StringCopy(gTextBuffer1, gText_ColorDarkGreyShadowLightGrey); 
+    StringAppend(gTextBuffer1, gText_RyuStatsAtk);
+    ConvertIntToDecimalStringN(gTextBuffer2, (GetMonData(&gPlayerParty[0], MON_DATA_ATK, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer2);
+    StringAppend(gTextBuffer1, gText_RyuStatsIv);
+    ConvertIntToDecimalStringN(gTextBuffer3, (GetMonData(&gPlayerParty[0], MON_DATA_ATK_IV, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer3);
+    StringAppend(gTextBuffer1, gText_RyuStatsEv);
+    ConvertIntToDecimalStringN(gTextBuffer4, (GetMonData(&gPlayerParty[0], MON_DATA_ATK_EV, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer4);
+    StringCopy(gStringVar2, gTextBuffer1);
+
+    StringCopy(gTextBuffer1, gText_ColorDarkGreyShadowLightGrey); 
+    StringAppend(gTextBuffer1, gText_RyuStatsDef);
+    ConvertIntToDecimalStringN(gTextBuffer2, (GetMonData(&gPlayerParty[0], MON_DATA_DEF, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer2);
+    StringAppend(gTextBuffer1, gText_RyuStatsIv);
+    ConvertIntToDecimalStringN(gTextBuffer3, (GetMonData(&gPlayerParty[0], MON_DATA_DEF_IV, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer3);
+    StringAppend(gTextBuffer1, gText_RyuStatsEv);
+    ConvertIntToDecimalStringN(gTextBuffer4, (GetMonData(&gPlayerParty[0], MON_DATA_DEF_EV, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer4);
+    StringCopy(gStringVar3, gTextBuffer1);
+
+    StringCopy(gTextBuffer1, gText_ColorDarkGreyShadowLightGrey); 
+    StringAppend(gTextBuffer1, gText_RyuStatsSpAtk);
+    ConvertIntToDecimalStringN(gTextBuffer2, (GetMonData(&gPlayerParty[0], MON_DATA_SPATK, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer2);
+    StringAppend(gTextBuffer1, gText_RyuStatsIv);
+    ConvertIntToDecimalStringN(gTextBuffer3, (GetMonData(&gPlayerParty[0], MON_DATA_SPATK_IV, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer3);
+    StringAppend(gTextBuffer1, gText_RyuStatsEv);
+    ConvertIntToDecimalStringN(gTextBuffer4, (GetMonData(&gPlayerParty[0], MON_DATA_SPATK_EV, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer4);
+    StringCopy(gRyuStringVar1, gTextBuffer1);
+
+    StringCopy(gTextBuffer1, gText_ColorDarkGreyShadowLightGrey); 
+    StringAppend(gTextBuffer1, gText_RyuStatsSpDef);
+    ConvertIntToDecimalStringN(gTextBuffer2, (GetMonData(&gPlayerParty[0], MON_DATA_SPDEF, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer2);
+    StringAppend(gTextBuffer1, gText_RyuStatsIv);
+    ConvertIntToDecimalStringN(gTextBuffer3, (GetMonData(&gPlayerParty[0], MON_DATA_SPDEF_IV, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer3);
+    StringAppend(gTextBuffer1, gText_RyuStatsEv);
+    ConvertIntToDecimalStringN(gTextBuffer4, (GetMonData(&gPlayerParty[0], MON_DATA_SPDEF_EV, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer4);
+    StringCopy(gRyuStringVar2, gTextBuffer1);
+
+    StringCopy(gTextBuffer1, gText_ColorDarkGreyShadowLightGrey); 
+    StringAppend(gTextBuffer1, gText_RyuStatsSpeed);
+    ConvertIntToDecimalStringN(gTextBuffer2, (GetMonData(&gPlayerParty[0], MON_DATA_SPEED, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer2);
+    StringAppend(gTextBuffer1, gText_RyuStatsIv);
+    ConvertIntToDecimalStringN(gTextBuffer3, (GetMonData(&gPlayerParty[0], MON_DATA_SPEED_IV, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer3);
+    StringAppend(gTextBuffer1, gText_RyuStatsEv);
+    ConvertIntToDecimalStringN(gTextBuffer4, (GetMonData(&gPlayerParty[0], MON_DATA_SPEED_EV, NULL)), STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringAppend(gTextBuffer1, gTextBuffer4);
+    StringCopy(gRyuStringVar3, gTextBuffer1);
+
+    return TRUE;
+}

@@ -1675,6 +1675,15 @@
 	.byte 0xf4
 	.endm
 
+	.macro drawinfobox number:req
+	.byte 0xf5
+    .byte \number
+	.endm
+
+	.macro removeinfobox
+	.byte 0xf6
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req
