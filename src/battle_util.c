@@ -3732,15 +3732,54 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
              && move != MOVE_STRUGGLE
              && gBattleMoves[move].power != 0
-             && TARGET_TURN_DAMAGED
-             && !IS_BATTLER_OF_TYPE(battler, moveType)
-             && gBattleMons[battler].hp != 0)
+             && !IS_BATTLER_OF_TYPE(battler, moveType))
             {
-                SET_BATTLER_TYPE(battler, moveType);
-                PREPARE_TYPE_BUFFER(gBattleTextBuff1, moveType);
-                BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_ColorChangeActivates;
-                effect++;
+                switch (moveType)
+                {
+                case ( TYPE_NORMAL)   
+                    :moveType = TYPE_GHOST;
+                case ( TYPE_GHOST)  
+                    :moveType = TYPE_NORMAL;
+                case ( TYPE_FIGHTING)  
+                    :moveType = TYPE_GHOST;
+                case ( TYPE_GROUND)  
+                    :moveType = TYPE_FLYING;
+                case (  TYPE_ELECTRIC)  
+                    :moveType = TYPE_GROUND;
+                case (  TYPE_DRAGON)  
+                    :moveType = TYPE_FAIRY;
+                case ( TYPE_POISON)  
+                    :moveType = TYPE_STEEL;
+                case (TYPE_PSYCHIC)  
+                    :moveType = TYPE_DARK;
+                case ( TYPE_FIRE)  
+                    :moveType = TYPE_WATER;
+                case (TYPE_WATER)  
+                    :moveType = TYPE_GRASS;
+                case (TYPE_FLYING)  
+                    :moveType = TYPE_ELECTRIC;
+                case (TYPE_GRASS)  
+                    :moveType = TYPE_FIRE;
+                case ( TYPE_ROCK)  
+                    :moveType = TYPE_FIGHTING;
+                case (TYPE_ICE)  
+                    :moveType = TYPE_ICE;
+                case (TYPE_BUG)  
+                    :moveType = TYPE_FIRE;
+                case (TYPE_DARK)  
+                    :moveType = TYPE_DARK;
+                case (TYPE_STEEL)  
+                    :moveType = TYPE_ELECTRIC;
+                case (TYPE_FAIRY)  
+                    :moveType = TYPE_POISON;
+                default:
+                    SET_BATTLER_TYPE(battler, moveType);
+                    PREPARE_TYPE_BUFFER(gBattleTextBuff1, moveType);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_ColorChangeActivates;
+                    effect++;
+                    break;
+                }
             }
             break;
         case ABILITY_GOOEY:
